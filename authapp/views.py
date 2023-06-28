@@ -11,12 +11,12 @@ def  base(request):
     return render(request, 'base.html')
 
 
+# def  services(request):
+#     return render(request, 'services.html')
+
+
 def  services(request):
     return render(request, 'services.html')
-
-
-def  About(request):
-    return render(request, 'about.html')
 
 def home(request):
     return render(request, 'index.html')
@@ -36,7 +36,7 @@ def attendence(request):
     if request.method == "POST":
         phonenumber=request.POST.get('PhoneNumber')
         Login=request.POST.get('logintime')
-        Logout=request.POST.get('logouttime')
+        Logout=request.POST.get('loginout')
         SelecWorkout= request.POST.get('workout')
         TrainedBy=request.POST.get('trainer')
         query=Attendence(phone=phonenumber, Login=Login,  Logout=Logout,  SelecWorkout=SelecWorkout, TrainedBy=TrainedBy)
@@ -57,6 +57,8 @@ def profile(request):
     posts=Enrollment.objects.all()
     context={"posts":posts, "attendance":attendance}
     return render(request,'profile.html',context)
+
+
 
 
 def signup(request):
